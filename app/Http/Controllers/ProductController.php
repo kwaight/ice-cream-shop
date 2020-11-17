@@ -13,6 +13,9 @@ class ProductController extends Controller
      */
     public function products()
     {
-        return Product::all()->groupBy('type');
+        $products = Product::all();
+        $response = $products->groupBy('type');
+        $response['lookup'] = $products->keyBy('id');
+        return $response;
     }
 }

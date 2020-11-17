@@ -13,7 +13,7 @@ class OrderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,12 @@ class OrderRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|email'
-            //TODO: Add validation for items
+            'email' => 'required|email',
+            'container' => 'required|integer|exists:App\Models\Product,id',
+            'scoops' => 'required|array|between:1,3',
+            'scoops.*' => 'integer|exists:App\Models\Product,id',
+            'toppings' => 'sometimes|array',
+            'toppings.*' => 'integer|exists:App\Models\Product,id'
         ];
     }
 }

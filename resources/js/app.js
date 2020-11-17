@@ -1,24 +1,34 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+import _ from 'lodash';
 
 Vue.use(VueRouter)
+Vue.use(VueAxios, axios);
 
 import App from './views/App'
-import Hello from './views/Hello'
-import Home from './views/Home'
+import Container from './views/Container'
+import PickContainer from './views/PickContainer'
+import Confirm from './views/Confirm'
 
 const router = new VueRouter({
     mode: 'history',
     routes: [
         {
             path: '/',
-            name: 'home',
-            component: Home
+            name: 'PickContainer',
+            component: PickContainer
         },
         {
-            path: '/hello',
-            name: 'hello',
-            component: Hello,
+            path: '/container/:id',
+            name: 'container',
+            component: Container,
+        },
+        {
+            path: '/confirm',
+            name: 'confirm',
+            component: Confirm,
         },
     ],
 });

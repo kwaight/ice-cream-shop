@@ -41,6 +41,18 @@ class ProductSeeder extends Seeder
         ]);
 
         Product::create([
+            'type' => 'topping',
+            'title' => 'M&Ms',
+            'price' => 0.5,
+        ]);
+
+        Product::create([
+            'type' => 'topping',
+            'title' => 'Cherries 🍒',
+            'price' => 0.5,
+        ]);
+
+        Product::create([
             'type' => 'scoop_flavor',
             'title' => 'Vanilla',
             'price' => 1.0,
@@ -49,6 +61,18 @@ class ProductSeeder extends Seeder
         Product::create([
             'type' => 'scoop_flavor',
             'title' => 'Chocolate',
+            'price' => 1.0,
+        ]);
+
+        Product::create([
+            'type' => 'scoop_flavor',
+            'title' => 'Cookies and Cream',
+            'price' => 1.0,
+        ]);
+
+        Product::create([
+            'type' => 'scoop_flavor',
+            'title' => 'Rocky Road',
             'price' => 1.0,
         ]);
     }
